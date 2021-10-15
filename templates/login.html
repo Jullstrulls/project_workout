@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Login page {% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+<p class="user"> {{msg}} </p>
+{% endfor  %}
+{% endif %}
+{% endwith%}
+
+<h1>Welcome!</h1>
+<p>This very special app is created to a person named Herman Söderström because he need an ap to track his workouts! </p>
+<br>
+<p>Because this app is Herman-only i need to check your identity below: </p>
+<br>
+<p><i>Logga in nedan för att komma åt fler sidor!</i></p>
+
+<form action="#" method="post">
+  <label>Username:<input type="text" name="username"></label>
+   <label>Password:<input type="text" name="password"></label>
+  <input type="submit" value="submit">
+</form>
+
+<br>
+<p>Om du svarade rätt kommer du komma vidare! Grattis till dig!! </p>  
+	
+{% endblock %}

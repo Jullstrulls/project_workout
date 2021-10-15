@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Add workout {% endblock %}
+
+{% block content %}
+
+
+<h1> Add workout </h1>
+	<!-- INPUT BOX WORKOUT -->
+	<section class="workout_box">
+	  <form action="/add_workout" method="POST">
+	    <label for="name">Workout name
+	    <input id="name" type="name" name="name"></label>             
+
+	    <label for="date">Date
+	    <input id="date" type="date" name="date"></label>
+	  
+	    <label for="exercise">Exercise
+	    <select id="exercise" name="exercise">
+	      <option value="Deadlift">Deadlift</option>
+	      <option value="Leg_press">Leg press</option>
+	      <option value="Curls">Curls</option>
+	    </select></label>
+
+	    <label for="sets">Sets
+	      <input id="sets" type="number" name="sets"></label>
+	    	     
+	    <label for="reps">Reps
+	    <input id="reps" type="number" name="reps"></label>
+
+	    <label for="weight">Weight(kg)
+	      <input id="weight" type="number" name="weight"></label>
+
+	    <input type="submit" value="submit">
+	    
+	  </form>
+
+	  
+	</section>
+{% endblock %}
