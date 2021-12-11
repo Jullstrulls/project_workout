@@ -5,12 +5,17 @@
     box-sizing: border-box;
 }
 
+a {
+    color: teal;
+}
+
+/* Bakrundsfärg */
 body {
     background-color: #3d3b39;
 }
 
+/* Box with all content */
 .app_box {
-    border: solid red 1 px;
     width: 70%;
     margin: 10% auto;
     background-color: white;
@@ -18,11 +23,12 @@ body {
     box-shadow: 0px 0px 10px black;
 }
 
+/* Navigation */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;  /*Rounded upper corners */
     background-color: teal;
 }
 
@@ -32,12 +38,12 @@ nav a {
     padding: 15px;
     font-family: sans-serif;
     text-align: center;
-
 }
 
+/* Main content wrapper for form/text */
 main {
     background-color: white;
-    min-height: 500px; /*ta bort när har innehåll*/
+    min-height: 500px; 
     border-radius: 10px;
     padding: 30px;
 }
@@ -46,16 +52,17 @@ main h1 {
     color: teal;
 }
 
+/* Teal workout boxes for add workout/workouts */ 
 .workout_box {
     background-color: teal;
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
     color: white;
-    
 }
 
-form {
+/* Form for add workout */
+.form_add_workout {
     max-width: 100%;
     display:flex;
     flex-wrap: wrap;
@@ -63,15 +70,11 @@ form {
     flex-direction: column;
 }
 
-form input{
+.form_add_workout input{
     margin:10px;
 }
 
-.user {
-    margin: 3px;
-    font-size: 0.8em;
-}
-
+/* Form box for exercise, sets, reps, weight */
 .add_exercise {
     display:flex;
     flex-wrap: wrap;
@@ -79,9 +82,49 @@ form input{
     align-items: center;
 }
 
+/* Inloggad som: user texten */
+.user {
+    margin: 3px;
+    font-size: 0.8em;
+}
+
+/* Heading for saved workouts workout boxes */
 .workout_heading {
     display:flex;
     justify-content: space-between;
     align-items: center;
-   
+}
+
+/*LOGIN form */
+.form_login {
+    display:flex;
+    flex-direction: column;
+}
+
+.form_login input {
+    margin: 10px 10px;
+}
+
+/* styling av submit buttons */
+input[type="submit"] {
+    margin: 10px;
+    padding: 5px;
+    width: 60px;
+    background-color: teal;
+    color: white;
+    border: 2px solid white;
+}
+
+input[type="submit"]:hover {
+    background-color:#00a8a8;
+    color: white;
+
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    background-color: teal;
+    color: white;
+
+    cursor: pointer;
 }

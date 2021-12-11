@@ -14,8 +14,9 @@ def login():
     if request.method == "POST":                           #om ej inloggad, loggar in
         username = request.form["username"]
         password = request.form["password"]                #name value i HTML form input
-       
-        if username == "Vengeance" and password == "lovejulia":
+        data_users = load("user_info.json")
+        
+        if check_login(data_users, username, password):
             session.permanent = True                       #default not permenant, detta gör att längre se ovan
             session["user"] = username
             flash("Login Succesful!")
@@ -29,7 +30,22 @@ def login():
         return redirect(url_for("home"))
             
     else:
-        return render_template("login.html")
+        return render_template("login.html", user=None)
+
+@app.route("/create_user", methods=["POST", "GET"])
+def create_user():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        new_account = {"username":username, "password":password}
+        appendjson("user_info.json", new_account)
+
+        flash("Account succesfully created, login")
+        return redirect(url_for("login"))
+    
+    else:
+        return render_template("create_user.html")
+            
 
 @app.route("/home")
 def home():
@@ -63,11 +79,11 @@ def add_workout():
 
             
             new_workout = {"name":name,"date":date, "descr":descr, "exercise":exercise, "sets":sets, "reps":reps, "weight":weight}
-            appendjson("data.json", new_workout)
+            appendjson(user+"_data.json", new_workout)
             
-            return render_template("add_workout.html")
+            return render_template("add_workout.html", user=user)
         else:
-            return render_template("add_workout.html")
+            return render_template("add_workout.html", user=user)
     else:
         flash("you are not logged in")
         return redirect(url_for("login"))
@@ -76,8 +92,8 @@ def add_workout():
 def workout():
     if "user" in session:
         user = session["user"]
-        data = load("data.json")
-        return render_template("workout.html", data=data)
+        data = load(user + "_data.json")
+        return render_template("workout.html", data=data, user = user)
     else:
         flash("you are not logged in")
         return redirect(url_for("login"))

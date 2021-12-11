@@ -8,13 +8,21 @@ def load(filename):
             return db
 
 def appendjson(filename, entry):
-    #reads json file and saves in variable data, as list
-    with open(filename, "r") as file:
-        data = load(filename)
-        
+    data = []
+    if os.path.exists(filename):
+        #reads json file and saves in variable data, as list
+        with open(filename, "r") as file:
+            data = load(filename)
+            
     #appends entry on data list
     data.append(entry)
 
     #writes the new data list to json, overwrites 
     with open(filename, "w") as file:
         json.dump(data, file)
+
+#checks if username and password exists
+def check_login(data, username, password):
+    for user in data:
+        if user["username"] == username and user["password"] == password:
+            return True

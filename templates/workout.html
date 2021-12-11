@@ -7,6 +7,7 @@
 
 <h1> Saved Workouts </h1>
 <!-- INPUT BOX WORKOUT -->
+{% if data %}
 {% for workout in data %}
 <section class="workout_box">
   <div class="workout_heading">
@@ -50,4 +51,10 @@
   
 </section>
 {% endfor %}
+{% else %}
+
+<p> No workouts created </p>
+<a href="/add_workout">Create workout now!</a>
+
+{% endif %}
 {% endblock %}
