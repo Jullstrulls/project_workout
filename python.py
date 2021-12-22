@@ -98,6 +98,18 @@ def workout():
         flash("you are not logged in")
         return redirect(url_for("login"))
 
+@app.route("/statistic")
+def statistics():
+    if "user" in session:
+        user = session["user"]
+        data = load(user + "_data.json")
+        monthly_weight = weight_month(data, "2021")
+        monthly_percent = increase_comparison_last_month(monthly_weight)
+        return render_template("statistics.html", data=data, user = user, tot_weight = total_weight(data), mon_weight = monthly_weight, mon_percent = monthly_percent)
+    else:
+        flash("you are not logged in")
+        return redirect(url_for("login"))
+
 
 
 

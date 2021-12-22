@@ -1,9 +1,0 @@
-import json
-
-
-def load(filename):
-    if os.path.exists(filename):    #Return none if file does not exist
-        with open(filename, 'r', encoding="utf-8") as f:
-            db = json.load(f)
-            sorted_db = sorted(db, key=lambda i: (i["project_id"]))
-            return sorted_db

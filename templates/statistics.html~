@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} Add workout {% endblock %}
+
+{% block content %}
+
+
+<h1> Saved Workouts </h1>
+<!-- INPUT BOX WORKOUT -->
+{% if data %}
+{% for workout in data %}
+<section class="workout_box">
+  <div class="workout_heading">
+    <h2>{{workout.name}}</h2>
+    <h3>{{workout.date}}</h3>
+  </div>
+  <p>{{workout.descr}}</p>
+
+  <br>
+  <div class="workout_heading">
+    <div>
+      <p><b>Exercise</b></p>
+      {% for exercise in workout.exercise %}
+      <p>{{exercise}}</p>
+      {% endfor %}
+    </div>
+    <div>
+      <p><b>Sets</b></p>
+      {% for set in workout.sets %}
+      <p>{{set}} st</p>
+      {% endfor %}
+    </div>
+    <div>
+      <p><b>Reps</b></p>
+      {% for rep in workout.reps %}
+      <p>{{rep}} st</p>
+      {% endfor %}
+    </div>
+    <div>
+      <p><b>Weight</b></p>
+      {% for weight in workout.weight %}
+      <p>{{weight}} kg</p>
+      {% endfor %}
+    </div>
+    <br>
+    <br>
+    
+   </div>
+  
+  
+  
+</section>
+{% endfor %}
+{% else %}
+
+<p> No workouts created </p>
+<a href="/add_workout">Create workout now!</a>
+
+{% endif %}
+{% endblock %}

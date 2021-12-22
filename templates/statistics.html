@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %} Statistics {% endblock %}
+
+{% block content %}
+
+
+<h1> Statistics </h1>
+<h1>  </h1
+
+<!-- INPUT BOX WORKOUT -->
+<section class="workout_box">
+  <div class="workout_heading">
+    <h2>Total weight lifted</h2>
+    <h2>{{tot_weight}} kg</h2>
+  </div>
+</section>
+<br>
+<section class="workout_box">
+  <div class="workout_heading">
+    <h2>Weight by month</h2>
+    <h2>2021</h2>
+    
+  </div>
+  <br>
+  <div class="statistics">
+    <div class="statistics_data">
+      <p><b>Month</b></p>
+      <p><b>Weight</b></p>
+    </div>
+    <div class="statistics_percent">
+      <p><b>Incr%</b></p>
+    </div>
+    <div class="statistics_image">
+      <p><b>Total month weight</b></p>
+    </div>
+  </div>
+  
+  {% for month in mon_weight %}
+  <div class="statistics">
+    
+    <div class="statistics_data">
+      <p>{{month}}</p>
+      
+      <p>{{mon_weight[month]}} kg</p>
+      
+    </div>
+     <div class="statistics_percent">
+      <p>{{mon_percent[month]}}%</p>
+    </div>
+    <div class="statistics_image">
+      {% for i in range(mon_weight[month]) %}
+      {% if i % 100 == 0 %}
+      <div class="stapel"></div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+   
+    
+    {% endfor %}
+  </div>
+  
+
+ 
+</section>
+
+{% endblock %}

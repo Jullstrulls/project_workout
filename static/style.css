@@ -38,6 +38,8 @@ nav a {
     padding: 15px;
     font-family: sans-serif;
     text-align: center;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Main content wrapper for form/text */
@@ -92,8 +94,46 @@ main h1 {
 .workout_heading {
     display:flex;
     justify-content: space-between;
-    align-items: center;
+ 
 }
+
+/*Statistics */
+.statistics {
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;   
+}
+
+.statistics_data {
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 1em;
+    width: 150px;
+   
+}
+
+.statistics_image {
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    
+}
+
+.statistics_percent {
+    text-align: right;
+    width: 60px;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    
+}
+
+.stapel {
+    width: 2px;
+    background-color: #ff7e33;
+}
+
 
 /*LOGIN form */
 .form_login {
